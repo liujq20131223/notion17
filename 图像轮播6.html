@@ -186,7 +186,7 @@
 
    .carousel-item__btn {
       width: 35%;
-      color: #2C2C2C;
+      color: #999; /* 修改星星颜色为浅灰色 */
       font-family: 'Open Sans', sans-serif;
       letter-spacing: 3px;
       font-size: 11px;
@@ -268,9 +268,16 @@
     }
 
    .icon {
-      color: #000;
+      color: #666; /* 修改图标颜色为浅灰色 */
       margin-right: 5px;
-      font-size: 14px; /* 调整图标大小 */
+      display: inline-block;
+      transform: scale(0.6); /* 缩放图标为原来的 50% */
+      transform-origin: center;
+    }
+
+   .rating-container {
+      display: flex;
+      gap: 20px; /* 设置间距 */
     }
   </style>
 </head>
@@ -298,63 +305,14 @@
           <h2 class="carousel-item__subtitle">Created: 2018 & 2024</h2>
           <h1 class="carousel-item__title"><span class="chinese-font">龙</span><span class="english-font">Dragon</span></h1>
           <p class="carousel-item__description">曲面（扭面）×纸雕（镂空）×立体书<br>Curved surface · paper sculpture · three-dimensional book.</p>
-          <span><i class="fa-solid fa-paintbrush icon"></i><a href="#" class="carousel-item__btn">★★★★☆</a></span>
-          <span><i class="fa-solid fa-scissors icon"></i><a href="#" class="carousel-item__btn">★★★★★</a></span>
+          <div class="rating-container">
+            <span><i class="fa-solid fa-paintbrush icon"></i><a href="#" class="carousel-item__btn">★★★★☆</a></span>
+            <span><i class="fa-solid fa-scissors icon"></i><a href="#" class="carousel-item__btn">★★★★★</a></span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item carousel-item--2">
-      <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
-        <div class="carousel-item__image"></div>
-      </a>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-          <h2 class="carousel-item__subtitle">The big window </h2>
-          <h1 class="carousel-item__title"><span class="chinese-font">美丽中国</span></h1>
-          <p class="carousel-item__description">Clear Glass Window With Brown and White Wooden Frame iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-          <a href="#" class="carousel-item__btn">Read the article</a>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item carousel-item--3">
-      <a href="https://example.com/page3" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
-        <div class="carousel-item__image"></div>
-      </a>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-          <h2 class="carousel-item__subtitle">Tropical palms </h2>
-          <h1 class="carousel-item__title">Palms</h1>
-          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-          <a href="#" class="carousel-item__btn">Explore the palms</a>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item carousel-item--4">
-      <a href="https://example.com/page4" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
-        <div class="carousel-item__image"></div>
-      </a>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-          <h2 class="carousel-item__subtitle">Beach </h2>
-          <h1 class="carousel-item__title">The beach </h1>
-          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-          <a href="#" class="carousel-item__btn">Explore the beach</a>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item carousel-item--5">
-      <a href="https://example.com/page5" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
-        <div class="carousel-item__image"></div>
-      </a>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-          <h2 class="carousel-item__subtitle">The white building </h2>
-          <h1 class="carousel-item__title">White building</h1>
-          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-          <a href="#" class="carousel-item__btn">Read the article</a>
-        </div>
-      </div>
-    </div>
+    <!-- 其他轮播项 -->
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
