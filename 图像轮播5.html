@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -19,11 +19,8 @@
       width: 100%;
       height: 100%;
       display: flex;
-      display: -webkit-flex;
       justify-content: center;
-      -webkit-justify-content: center;
       align-items: center;
-      -webkit-align-items: center;
     }
 
     body {
@@ -47,12 +44,9 @@
       height: 100%;
       align-items: center;
       justify-content: flex-end;
-      -webkit-align-items: center;
-      -webkit-justify-content: flex-end;
       position: relative;
       background-color: #fff;
       flex-shrink: 0;
-      -webkit-flex-shrink: 0;
       position: absolute;
       z-index: 0;
       transition: 0.6s all linear;
@@ -63,9 +57,6 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      display: -webkit-flex;
-      -webkit-justify-content: center;
-      -webkit-flex-direction: column;
       order: 1;
       left: 0;
       margin: auto;
@@ -74,16 +65,12 @@
     }
 
    .carousel-item__image-link {
-      /* 为链接添加样式，使其能够正确显示图片 */
       width: 60%;
       height: 100%;
       order: 2;
       align-self: flex-end;
       flex-basis: 60%;
-      -webkit-order: 2;
-      -webkit-align-self: flex-end;
-      -webkit-flex-basis: 60%;
-      display: block; /* 将链接设置为块级元素 */
+      display: block;
     }
 
    .carousel-item__image {
@@ -98,14 +85,14 @@
     }
 
     @font-face {
-    font-family: '仓耳与墨W03'; 
-    src: url('https://liujq20131223.github.io/notion17/fonts/仓耳与墨W03.ttf') format('truetype'); 
-}
+      font-family: '仓耳与墨W03';
+      src: url('https://liujq20131223.github.io/notion17/fonts/仓耳与墨W03.ttf') format('truetype');
+    }
 
     @font-face {
-    font-family: 'Courgette-Regular';
-    src: url('https://liujq20131223.github.io/notion17/fonts/Courgette-Regular.ttf') format('truetype');
-}
+      font-family: 'Courgette-Regular';
+      src: url('https://liujq20131223.github.io/notion17/fonts/Courgette-Regular.ttf') format('truetype');
+    }
 
    .carousel-item__subtitle {
       font-family: 'Open Sans', sans-serif;
@@ -135,11 +122,11 @@
     }
 
    .chinese-font {
-        font-family: '仓耳与墨W03', serif;
+      font-family: '仓耳与墨W03', serif;
     }
 
    .english-font {
-        font-family: 'Courgette-Regular', serif; /* 你可以替换为你想要的英文字体 */
+      font-family: 'Courgette-Regular', serif;
     }
 
    .carousel-item__description {
@@ -156,31 +143,24 @@
     }
 
    .carousel-item--1 .carousel-item__image {
-      /* 这是龙的位置 */
       background-image: url('https://raw.githubusercontent.com/liujq20131223/tuchuang/main/images/%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E4%BD%BF%E7%94%A8.jpg');
     }
 
    .carousel-item--2 .carousel-item__image {
-      /* 这是《美丽中国》图片的位置 */
       background-image: url('https://raw.githubusercontent.com/liujq20131223/tuchuang/main/images/%E6%99%BA%E6%85%A7%E4%B9%8B%E7%BE%8E%EF%BC%8C%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E4%BD%BF%E7%94%A8-tuya.jpg');
     }
 
    .carousel-item--3 .carousel-item__image {
-      /* 这是图片的位置 */
       background-image: url('https://images.pexels.com/photos/92733/pexels-photo-92733.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
     }
 
    .carousel-item--4 .carousel-item__image {
-      /* 这是图片的位置 */
       background-image: url('https://images.pexels.com/photos/1008732/pexels-photo-1008732.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
     }
 
    .carousel-item--5 .carousel-item__image {
-      /* 这是图片的位置 */
       background-image: url('https://images.pexels.com/photos/1029614/pexels-photo-1029614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     }
-
-   .carousel-item__container {}
 
    .carousel-item__btn {
       width: 35%;
@@ -190,7 +170,6 @@
       font-size: 11px;
       text-transform: uppercase;
       margin: 0;
-      width: 35%;
       font-weight: 700;
       text-decoration: none;
       transform: translateY(25%);
@@ -205,7 +184,7 @@
       z-index: 2;
       background-color: #fff;
       bottom: 0;
-      opacity: 0.7; /* 设置透明度，范围 0 - 1，0 为完全透明，1 为完全不透明 */
+      opacity: 0.7;
       transition: opacity 0.3s ease;
     }
 
@@ -262,22 +241,35 @@
 </head>
 
 <body>
+  <div class="carousel">
+    <div class="carousel__nav">
+      <span id="moveLeft" class="carousel__arrow">
+        <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+        </svg>
+      </span>
+      <span id="moveRight" class="carousel__arrow">
+        <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+        </svg>
+      </span>
+    </div>
     <div class="carousel-item carousel-item--1">
-        <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link">
-            <div class="carousel-item__image"></div>
-        </a>
-        <div class="carousel-item__info">
-            <div class="carousel-item__container">
-                <h2 class="carousel-item__subtitle">Created: 2018 & 2024</h2>
-                <h1 class="carousel-item__title"><span class="chinese-font">龙</span><span class="english-font">Dragon</span></h1>
-                <p class="carousel-item__description">曲面（扭面）×纸雕（镂空）×立体书<br>Curved surface · paper sculpture · three-dimensional book.</p>
-                <span><i class="fa-solid fa-paintbrush icon"></i><a href="#" class="carousel-item__btn">★★★★☆</a></span>
-                <span><i class="fa-solid fa-scissors icon"></i><a href="#" class="carousel-item__btn">★★★★★</a></span>
-            </div>
+      <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link">
+        <div class="carousel-item__image"></div>
+      </a>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">Created: 2018 & 2024</h2>
+          <h1 class="carousel-item__title"><span class="chinese-font">龙</span><span class="english-font">Dragon</span></h1>
+          <p class="carousel-item__description">曲面（扭面）×纸雕（镂空）×立体书<br>Curved surface · paper sculpture · three-dimensional book.</p>
+          <span><i class="fa-solid fa-paintbrush icon"></i><a href="#" class="carousel-item__btn">★★★★☆</a></span>
+          <span><i class="fa-solid fa-scissors icon"></i><a href="#" class="carousel-item__btn">★★★★★</a></span>
         </div>
+      </div>
     </div>
     <div class="carousel-item carousel-item--2">
-      <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+      <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link">
         <div class="carousel-item__image"></div>
       </a>
       <div class="carousel-item__info">
@@ -290,7 +282,7 @@
       </div>
     </div>
     <div class="carousel-item carousel-item--3">
-      <a href="https://example.com/page3" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+      <a href="https://example.com/page3" class="carousel-item__image-link">
         <div class="carousel-item__image"></div>
       </a>
       <div class="carousel-item__info">
@@ -303,7 +295,7 @@
       </div>
     </div>
     <div class="carousel-item carousel-item--4">
-      <a href="https://example.com/page4" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+      <a href="https://example.com/page4" class="carousel-item__image-link">
         <div class="carousel-item__image"></div>
       </a>
       <div class="carousel-item__info">
@@ -316,7 +308,7 @@
       </div>
     </div>
     <div class="carousel-item carousel-item--5">
-      <a href="https://example.com/page5" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+      <a href="https://example.com/page5" class="carousel-item__image-link">
         <div class="carousel-item__image"></div>
       </a>
       <div class="carousel-item__info">
@@ -390,4 +382,3 @@
 </body>
 
 </html>
-    
