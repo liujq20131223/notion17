@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexBox Exercise #3 - Image carousel / Responsive</title>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <!-- 引入 Font Awesome 图标库 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      display: -webkit-flex;
+      justify-content: center;
+      -webkit-justify-content: center;
+      align-items: center;
+      -webkit-align-items: center;
+    }
+
+    body {
+      background-color: #eaeaea;
+    }
+
+   .carousel {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      max-width: 900px;
+      max-height: 550px;
+      overflow: hidden;
+      position: relative;
+    }
+
+   .carousel-item {
+      visibility: visible;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: flex-end;
+      -webkit-align-items: center;
+      -webkit-justify-content: flex-end;
+      position: relative;
+      background-color: #fff;
+      flex-shrink: 0;
+      -webkit-flex-shrink: 0;
+      position: absolute;
+      z-index: 0;
+      transition: 0.6s all linear;
+    }
+
+   .carousel-item__info {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      display: -webkit-flex;
+      -webkit-justify-content: center;
+      -webkit-flex-direction: column;
+      order: 1;
+      left: 0;
+      margin: auto;
+      padding: 0 40px;
+      width: 40%;
+    }
+
+   .carousel-item__image-link {
+      /* 为链接添加样式，使其能够正确显示图片 */
+      width: 60%;
+      height: 100%;
+      order: 2;
+      align-self: flex-end;
+      flex-basis: 60%;
+      -webkit-order: 2;
+      -webkit-align-self: flex-end;
+      -webkit-flex-basis: 60%;
+      display: block; /* 将链接设置为块级元素 */
+    }
+
+   .carousel-item__image {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      transform: translateX(100%);
+      transition: 0.6s all ease-in-out;
+    }
+
+    @font-face {
+      font-family: '仓耳与墨W03'; 
+      src: url('https://liujq20131223.github.io/notion17/fonts/仓耳与墨W03.ttf') format('truetype'); 
+    }
+
+    @font-face {
+      font-family: 'Courgette-Regular';
+      src: url('https://liujq20131223.github.io/notion17/fonts/Courgette-Regular.ttf') format('truetype');
+    }
+
+   .carousel-item__subtitle {
+      font-family: 'Open Sans', sans-serif;
+      letter-spacing: 3px;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin: 0;
+      color: #7E7E7E;
+      font-weight: 700;
+      transform: translateY(25%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.4s all ease-in-out;
+    }
+
+   .carousel-item__title {
+      margin: 15px 0 0 0;
+      font-size: 44px;
+      line-height: 45px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      color: #2C2C2C;
+      transform: translateY(25%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.6s all ease-in-out;
+    }
+
+   .chinese-font {
+        font-family: '仓耳与墨W03', serif;
+    }
+
+   .english-font {
+        font-family: 'Courgette-Regular', serif; /* 你可以替换为你想要的英文字体 */
+    }
+
+   .carousel-item__description {
+      transform: translateY(25%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.6s all ease-in-out;
+      margin-top: 35px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      color: #7e7e7e;
+      line-height: 22px;
+      margin-bottom: 35px;
+    }
+
+   .carousel-item--1 .carousel-item__image {
+      /* 这是龙的位置 */
+      background-image: url('https://raw.githubusercontent.com/liujq20131223/tuchuang/main/images/%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E4%BD%BF%E7%94%A8.jpg');
+    }
+
+   .carousel-item--2 .carousel-item__image {
+      /* 这是《美丽中国》图片的位置 */
+      background-image: url('https://raw.githubusercontent.com/liujq20131223/tuchuang/main/images/%E6%99%BA%E6%85%A7%E4%B9%8B%E7%BE%8E%EF%BC%8C%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E4%BD%BF%E7%94%A8-tuya.jpg');
+    }
+
+   .carousel-item--3 .carousel-item__image {
+      /* 这是图片的位置 */
+      background-image: url('https://images.pexels.com/photos/92733/pexels-photo-92733.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    }
+
+   .carousel-item--4 .carousel-item__image {
+      /* 这是图片的位置 */
+      background-image: url('https://images.pexels.com/photos/1008732/pexels-photo-1008732.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    }
+
+   .carousel-item--5 .carousel-item__image {
+      /* 这是图片的位置 */
+      background-image: url('https://images.pexels.com/photos/1029614/pexels-photo-1029614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    }
+
+   .carousel-item__container {}
+
+   .carousel-item__btn {
+      width: 35%;
+      color: #2C2C2C;
+      font-family: 'Open Sans', sans-serif;
+      letter-spacing: 3px;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin: 0;
+      width: 35%;
+      font-weight: 700;
+      text-decoration: none;
+      transform: translateY(25%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.6s all ease-in-out;
+    }
+
+    /* 添加按钮悬停样式 */
+   .carousel-item__btn:hover {
+      color: #5d5d5d;
+      text-decoration: underline;
+    }
+
+   .carousel__nav {
+      position: absolute;
+      right: 0;
+      z-index: 2;
+      background-color: #fff;
+      bottom: 0;
+      opacity: 0.7; /* 设置透明度，范围 0 - 1，0 为完全透明，1 为完全不透明 */
+      transition: opacity 0.3s ease;
+    }
+
+   .carousel__nav:hover {
+      opacity: 1;
+    }
+
+   .carousel__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 16px;
+      fill: #5d5d5d;
+    }
+
+   .carousel__arrow {
+      cursor: pointer;
+      display: inline-block;
+      padding: 11px 15px;
+      position: relative;
+    }
+
+   .carousel__arrow:nth-child(1):after {
+      content: '';
+      right: -3px;
+      position: absolute;
+      width: 1px;
+      background-color: #b0b0b0;
+      height: 14px;
+      top: 50%;
+      margin-top: -7px;
+    }
+
+   .active {
+      z-index: 1;
+      display: flex;
+      visibility: visible;
+    }
+
+   .active .carousel-item__subtitle,
+   .active .carousel-item__title,
+   .active .carousel-item__description,
+   .active .carousel-item__btn {
+      transform: translateY(0);
+      opacity: 1;
+      transition: 0.6s all ease-in-out;
+      visibility: visible;
+    }
+
+   .active .carousel-item__image {
+      transition: 0.6s all ease-in-out;
+      transform: translateX(0);
+    }
+
+   .icon {
+      color: #000;
+      margin-right: 5px;
+      font-size: 14px; /* 调整图标大小 */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="carousel">
+    <div class="carousel__nav">
+      <span id="moveLeft" class="carousel__arrow">
+        <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+        </svg>
+      </span>
+      <span id="moveRight" class="carousel__arrow">
+        <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+        </svg>
+      </span>
+    </div>
+    <div class="carousel-item carousel-item--1">
+      <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+        <div class="carousel-item__image"></div>
+      </a>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">Created: 2018 & 2024</h2>
+          <h1 class="carousel-item__title"><span class="chinese-font">龙</span><span class="english-font">Dragon</span></h1>
+          <p class="carousel-item__description">曲面（扭面）×纸雕（镂空）×立体书<br>Curved surface · paper sculpture · three-dimensional book.</p>
+          <span><i class="fa-solid fa-paintbrush icon"></i><a href="#" class="carousel-item__btn">★★★★☆</a></span>
+          <span><i class="fa-solid fa-scissors icon"></i><a href="#" class="carousel-item__btn">★★★★★</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--2">
+      <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+        <div class="carousel-item__image"></div>
+      </a>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">The big window </h2>
+          <h1 class="carousel-item__title"><span class="chinese-font">美丽中国</span></h1>
+          <p class="carousel-item__description">Clear Glass Window With Brown and White Wooden Frame iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+          <a href="#" class="carousel-item__btn">Read the article</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--3">
+      <a href="https://example.com/page3" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+        <div class="carousel-item__image"></div>
+      </a>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">Tropical palms </h2>
+          <h1 class="carousel-item__title">Palms</h1>
+          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <a href="#" class="carousel-item__btn">Explore the palms</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--4">
+      <a href="https://example.com/page4" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+        <div class="carousel-item__image"></div>
+      </a>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">Beach </h2>
+          <h1 class="carousel-item__title">The beach </h1>
+          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <a href="#" class="carousel-item__btn">Explore the beach</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--5">
+      <a href="https://example.com/page5" class="carousel-item__image-link"> <!-- 这是图片点击后跳转的位置 -->
+        <div class="carousel-item__image"></div>
+      </a>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">The white building </h2>
+          <h1 class="carousel-item__title">White building</h1>
+          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <a href="#" class="carousel-item__btn">Read the article</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      $('.carousel-item').eq(0).addClass('active');
+      var total = $('.carousel-item').length;
+      var current = 0;
+      $('#moveRight').on('click', function () {
+        var next = current;
+        current = current + 1;
+        setSlide(next, current);
+      });
+      $('#moveLeft').on('click', function () {
+        var prev = current;
+        current = current - 1;
+        setSlide(prev, current);
+      });
+
+      function setSlide(prev, next) {
+        var slide = current;
+        if (next > total - 1) {
+          slide = 0;
+          current = 0;
+        }
+        if (next < 0) {
+          slide = total - 1;
+          current = total - 1;
+        }
+        $('.carousel-item').eq(prev).removeClass('active');
+        $('.carousel-item').eq(slide).addClass('active');
+        setTimeout(function () {
+
+        }, 800);
+
+
+        console.log('current ' + current);
+        console.log('prev ' + prev);
+      }
+
+      // 添加自动轮播功能
+      var intervalId = setInterval(function () {
+        var next = current + 1;
+        setSlide(current, next);
+      }, 5000); // 每 5 秒切换一次图片
+
+      // 鼠标悬停在轮播图上时暂停自动轮播
+      $('.carousel').on('mouseenter', function () {
+        clearInterval(intervalId);
+      });
+
+      // 鼠标离开轮播图时恢复自动轮播
+      $('.carousel').on('mouseleave', function () {
+        intervalId = setInterval(function () {
+          var next = current + 1;
+          setSlide(current, next);
+        }, 5000);
+      });
+    });
+  </script>
+</body>
+
+</html>    
