@@ -31,16 +31,18 @@
 
     /* 主轮播容器 - 使用相对高度，最大高度设为80vh */
 
-   .carousel {
-      width: 100%;
-      max-width: 1200px;
+    .carousel {
+      width: 100%;                /* 宽度设置为父容器的100% */
+      max-width: 1200px;          /* 最大宽度限制为1200px，防止在大屏幕上过宽 */
+    
       /* 按照1:2（高:宽）的比例设置高度，通过padding-bottom来实现 */
-      padding-bottom: 50%; /* 50%表示高度是宽度的50%，即1:2的比例 */
-      margin: 20px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 0px 0px rgba(0, 0, 0, 0); /* 大块阴影 */
-      border-radius: 10px;
+      padding-bottom: 50%;        /* 高度根据宽度动态计算，保持1:2的宽高比 */
+      
+      margin: 20px;               /* 外边距设置为20px，使轮播图与页面其他元素保持距离 */
+      overflow: hidden;           /* 超出容器的内容将被隐藏，防止图片溢出 */
+      position: relative;         /* 相对定位，作为内部绝对定位元素的参考点 */
+      box-shadow: 0 0px 0px rgba(0, 0, 0, 0); /* 初始阴影效果（当前设置为无阴影） */
+      border-radius: 10px;        /* 圆角边框，使轮播图边缘更加柔和 */
     }
 
     /* 轮播项 - 包含图片和文字内容 */
