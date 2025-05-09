@@ -129,6 +129,7 @@
       visibility: hidden;
       transition: all 0.5s ease-out 0.3s;
       position: relative; /* 添加相对定位，作为伪元素的参考 */
+      z-index: 1; /* 确保副标题在色块上方 */
     }
 
     /* 副标题（年份）下方的色块 */
@@ -141,8 +142,16 @@
       height: 4px; /* 色块高度 */
       background-color: rgba(255, 255, 255, 0.3); /* 白色，30%透明度 */
       border-radius: 2px; /* 圆角 */
+      z-index: -1; /* 确保色块在文字下方 */
+      display: block !important; /* 确保显示 */
     }
 
+    /* 确保内容区域有足够的z-index */
+   .carousel-item__info {
+      z-index: 2;
+      position: relative; /* 确保定位上下文 */
+    }
+    
     /* 标题样式 - 第二行大标题，控制字体大小、间距和动画 */
    .carousel-item__title {
       margin: 0 0 10px 0;/* 调整此值改变大标题与描述文字的间距 */
