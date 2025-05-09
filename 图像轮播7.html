@@ -112,9 +112,9 @@
       src: url('https://liujq20131223.github.io/notion17/fonts/Courgette-Regular.ttf') format('truetype');
     }
 
-    /* 副标题样式 - 控制副标题的位置、大小和动画 */
+    /* 副标题样式 - 控制副标题，类似年份，的位置、大小和动画 */
    .carousel-item__subtitle {
-      letter-spacing: 3px; /* 字母间距设为3px */
+      letter-spacing: 2.5px; /* 字母间距设为2.5px */
       font-size: 12px;
       text-transform: uppercase;
       margin: 0 0 15px 0;
@@ -190,7 +190,7 @@
     /* 图标样式 - 控制评分图标大小和颜色 */
    .icon {
       color: rgba(44, 44, 44, 0.7); /* 图标颜色变浅，使用70%透明度 */
-      font-size: 18px;
+      font-size: 12px;
     }
 
     /* 星级评分样式 - 控制星级显示 */
@@ -202,7 +202,7 @@
     /* 单个星星样式 - 控制星星颜色和动画 */
    .star {
       color: #ffd700;
-      font-size: 14px;
+      font-size: 10px;
       transition: all 0.3s ease;
     }
 
@@ -216,18 +216,18 @@
       gap: 15px;
     }
 
-    /* 主要按钮样式 - 查看详情按钮 */
+    /* 主要按钮样式 - “查看详情”按钮 */
    .primary-btn {
       display: inline-block;
-      padding: 10px 25px; /* 减小按钮尺寸 */
-      background-color: rgba(85, 85, 85, 0.9); /* 背景色变浅灰色并添加90%透明度 */
-      color: white;
+      padding: 8px 20px; /* 减小按钮尺寸 */
+      background-color: rgba(85, 85, 85, 0.3); /* 背景色变浅灰色并添加30%透明度 */
+      color: white; /* 文字颜色 */
       text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      border-radius: 50px;
-      transition: all 0.3s ease;
+      font-size: 11px; /* 字号 - 调整此值改变文字大小 */
+      font-weight: 400; /* 字体粗细 */
+      letter-spacing: 1.5px; /* 字母间距 */
+      border-radius: 50px; /* 圆角半径 - 使按钮边缘更圆润 */
+      transition: all 0.3s ease; /* 过渡动画 - 控制悬停效果的平滑度 */
     }
 
     /* 主要按钮悬停效果 - 改变颜色和位置 */
@@ -408,17 +408,20 @@
       <span class="indicator" data-index="4"></span>
     </div>
     
-    <!-- 轮播项1 - 第一张轮播图片和内容 -->
+    <!-- 轮播项1 - 第一张《龙》轮播图片和内容 -->
     <div class="carousel-item carousel-item--1">
       <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link">
-        <div class="carousel-item__image" style="background-image: url('https://picsum.photos/id/1035/1200/800');"></div>
+        <div class="carousel-item__image" style="background-image: url('https://raw.githubusercontent.com/liujq20131223/tuchuang/main/images/%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E4%BD%BF%E7%94%A8.jpg');"></div>
       </a>
       <div class="carousel-item__info">
         <div class="carousel-item__container">
           <h2 class="carousel-item__subtitle">Created: 2018 & 2024</h2>
           <!-- 第二行大标题 - 中英文名组合 -->
-          <h1 class="carousel-item__title"><span class="chinese-font">龙</span><span class="english-font">Dragon</span></h1>
-          <p class="carousel-item__description">曲面/扭面×镂空×立体书<br>twisted · hollow · pop-up book</p>
+          <h1 class="carousel-item__title"> <!-- 开头的h1标签 -->
+            <span class="chinese-font">龙</span>
+            <span class="english-font">Dragon</span>
+          </h1>
+          <p class="carousel-item__description">曲面/扭面×镂空×立体书<br>twisted · hollow · pop-up</p>
           <div class="rating-container">
             <div class="rating-item">
               <i class="fa-solid fa-paintbrush icon"></i>
@@ -448,16 +451,19 @@
       </div>
     </div>
     
-    <!-- 轮播项2 - 第二张轮播图片和内容 -->
+    <!-- 轮播项2 - 第二张《昆虫记》轮播图片和内容 -->
     <div class="carousel-item carousel-item--2">
       <a href="https://www.notion.so/jz-pop/e8ca6da04a854a10b741e0696601dfa0?pvs=4" class="carousel-item__image-link">
-        <div class="carousel-item__image" style="background-image: url('https://picsum.photos/id/1015/1200/800');"></div>
+        <div class="carousel-item__image" style="background-image: url('https://raw.githubusercontent.com/liujq20131223/tuchuang/main/images/%E6%99%BA%E6%85%A7%E4%B9%8B%E7%BE%8E%EF%BC%8C%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E4%BD%BF%E7%94%A8-tuya.jpg');"></div>
       </a>
       <div class="carousel-item__info">
         <div class="carousel-item__container">
           <h2 class="carousel-item__subtitle">The big window</h2>
-          <!-- 第二行大标题 - 中文标题 -->
-          <h1 class="carousel-item__title"><span class="chinese-font">美丽中国</span></h1>
+          <!-- 第二行大标题 - 中文,英文格式都保留,都可编辑的标题 -->
+          <h1 class="carousel-item__title"> <!-- 开头的h1标签 -->
+            <span class="chinese-font">昆虫记</span>
+            <span class="english-font"></span> <!-- 预留位置 -->
+          </h1>
           <p class="carousel-item__description">Clear Glass Window With Brown and White Wooden Frame iste natus error sit voluptatem accusantium doloremque laudantium.</p>
           <div class="rating-container">
             <div class="rating-item">
@@ -488,7 +494,7 @@
       </div>
     </div>
     
-    <!-- 轮播项3 - 第三张轮播图片和内容 -->
+    <!-- 轮播项3 - 第三张《美丽中国》轮播图片和内容 -->
     <div class="carousel-item carousel-item--3">
       <a href="https://example.com/page3" class="carousel-item__image-link">
         <div class="carousel-item__image" style="background-image: url('https://picsum.photos/id/1018/1200/800');"></div>
@@ -496,8 +502,12 @@
       <div class="carousel-item__info">
         <div class="carousel-item__container">
           <h2 class="carousel-item__subtitle">Tropical palms</h2>
-          <!-- 第二行大标题 - 英文标题 -->
-          <h1 class="carousel-item__title">Palms</h1>
+          <!-- 第二行大标题 - 中文,英文格式都保留,都可编辑的标题 -->
+          <h1 class="carousel-item__title"> <!-- 开头的h1标签 -->
+            <span class="chinese-font">美丽中国</span>
+            <span class="english-font"></span>
+          </h1>
+          <!-- 第三段解释中英文名组合 -->
           <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
           <div class="rating-container">
             <div class="rating-item">
@@ -536,8 +546,11 @@
       <div class="carousel-item__info">
         <div class="carousel-item__container">
           <h2 class="carousel-item__subtitle">Beach</h2>
-          <!-- 第二行大标题 - 英文标题 -->
-          <h1 class="carousel-item__title">The beach</h1>
+          <!-- 第二行大标题 - 中文,英文格式都保留,都可编辑的标题 -->
+          <h1 class="carousel-item__title"> <!-- 开头的h1标签 -->
+            <span class="chinese-font">美丽中国</span>
+            <span class="english-font"></span> <!-- 预留位置 -->
+          </h1>
           <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
           <div class="rating-container">
             <div class="rating-item">
@@ -660,7 +673,7 @@
         intervalId = setInterval(function () {
           var next = current + 1;
           changeSlide(next);
-        }, 6000); // 每6秒切换一次
+        }, 12000); // 每12秒切换一次
       }
       
       // 切换轮播项函数 - 核心切换逻辑
