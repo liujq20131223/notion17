@@ -116,18 +116,31 @@
       src: url('https://liujq20131223.github.io/notion17/fonts/Courgette-Regular.ttf') format('truetype');
     }
 
-    /* 副标题样式 - 控制副标题，类似年份，的位置、大小和动画 */
+    /* 副标题（年份）样式 - 控制副标题，类似年份，的位置、大小和动画 */
    .carousel-item__subtitle {
       letter-spacing: 2.5px; /* 字母间距设为2.5px */
       font-size: 12px;
       text-transform: uppercase;
-      margin: 0 0 25px 0;/* 调整此值改变副标题与大标题的间距 */
+      margin: 0 0 25px 0;/* 调整此值改变副标题（年份）与大标题的间距 */
       color: #7E7E7E;
       font-weight: 700;
       transform: translateY(20px);
       opacity: 0;
       visibility: hidden;
       transition: all 0.5s ease-out 0.3s;
+      position: relative; /* 添加相对定位，作为伪元素的参考 */
+    }
+
+    /* 副标题（年份）下方的色块 */
+   .carousel-item__subtitle::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; /* 调整色块与文字的间距 */
+      left: 0;
+      width: 40px; /* 色块宽度 */
+      height: 4px; /* 色块高度 */
+      background-color: rgba(255, 255, 255, 0.3); /* 白色，30%透明度 */
+      border-radius: 2px; /* 圆角 */
     }
 
     /* 标题样式 - 第二行大标题，控制字体大小、间距和动画 */
@@ -154,18 +167,17 @@
       font-family: 'Courgette-Regular', serif;
     }
 
-    /* 描述文字样式 - 控制描述文字的大小、间距和动画 */
    .carousel-item__description {
-      transform: translateY(20px);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.6s ease-out 0.5s;
-      margin: 0 0 20px 0;
-      font-size: 15px;
-      color: #555;
-      line-height: 1.8; /* 行高设为1.8倍，提高可读性 */
-    }
-
+      transform: translateY(20px);         /* 初始位置向下偏移20px，用于实现动画效果 */
+      opacity: 0;                          /* 初始透明度为0，元素不可见 */
+      visibility: hidden;                  /* 初始状态下元素隐藏，不占据空间 */
+      transition: all 0.6s ease-out 0.5s;  /* 所有属性变化使用0.6秒的缓动动画，延迟0.5秒开始 */
+      margin: 0 0 20px 0;                  /* 底部外边距20px，控制与下方元素的间距 */
+      font-size: 15px;                     /* 字体大小15px */
+      color: #555;                         /* 文字颜色为深灰色 */
+      line-height: 1.8;                    /* 行高设为1.8倍，提高多行文本的可读性 */
+    }  
+    
     /* 评分容器（星星）样式 - 控制评分区域的位置和动画 */
    .rating-container {
       display: flex;
