@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff; /* 纯白色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .quote-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 25px 30px;
+            border-radius: 16px;
+            font-family: 'Inter', system-ui, sans-serif;
+            transition: opacity 0.5s ease-in-out; /* 平滑的淡入淡出动画 */
+            opacity: 0;
+            
+            /* 保留普通阴影，移除白色渐变阴影 */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+        }
+
+        .quote-container.visible {
+            opacity: 1; /* 完全显示 */
+        }
+
+        .quote-text {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            line-height: 1.7;
+            color: #334155;
+            text-align: center;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .author {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #64748b;
+            text-align: right;
+            margin-top: 12px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* 清淡渐变色系 */
+        .bg-1 { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); }
+        .bg-2 { background: linear-gradient(135deg, #dcfce7 0%, #a7f3d0 100%); }
+        .bg-3 { background: linear-gradient(135deg, #ede9fe 0%, #d8b4fe 100%); }
+        .bg-4 { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); }
+        .bg-5 { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+        .bg-6 { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); }
+    </style>
+</head>
+<body>
+    <!-- 名言容器 -->
+    <div class="quote-container visible bg-1" id="quoteBox">
+        <p class="quote-text">加载中...</p>
+        <p class="author">- 未知</p>
+    </div>
+
+    <script>
+        // 名言列表 [内容, 作者, 背景类]
+        const quotes = [
+            ["生命中最美好的事情都是免费的：阳光、笑声、爱与梦想。", "- 无名氏", "bg-1"],
+            ["你无法改变过去，但你可以决定从现在开始创造怎样的未来。", "- 海伦·凯勒", "bg-2"],
+            ["成功不是终点，失败也非末日，重要的是继续前进的勇气。", "- 温斯顿·丘吉尔", "bg-3"],
+            ["每一个伟大的成就都始于一个勇敢的开始。", "- 纳尔逊·曼德拉", "bg-4"],
+            ["真正的智慧是知道自己的无知。", "- 苏格拉底", "bg-5"],
+            ["生活是一面镜子，你对它笑，它就对你笑；你对它哭，它就对你哭。", "- 萨克雷", "bg-6"]
+        ];
+
+        // 显示随机名言
+        function showRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const [text, author, bgClass] = quotes[randomIndex];
+            const quoteBox = document.getElementById('quoteBox');
+            
+            // 执行淡出动画
+            quoteBox.classList.remove('visible');
+            
+            setTimeout(() => {
+                // 更新内容
+                quoteBox.innerHTML = `
+                    <p class="quote-text">${text}</p>
+                    <p class="author">${author}</p>
+                `;
+                
+                // 重置类并添加新背景
+                quoteBox.className = 'quote-container';
+                quoteBox.classList.add(bgClass);
+                
+                // 触发重排后添加入场动画
+                void quoteBox.offsetWidth; 
+                quoteBox.classList.add('visible');
+                
+                // 根据字数计算停留时间（每4个字1秒）
+                const textLength = text.length;
+                const displayTime = Math.max(3, Math.ceil(textLength / 4)) * 1000; // 至少3秒
+                
+                // 设置下一次切换的定时器
+                setTimeout(showRandomQuote, displayTime);
+            }, 300); // 淡出动画时间
+        }
+
+        // 初始加载
+        showRandomQuote();
+    </script>
+</body>
+</html>
